@@ -1,0 +1,11 @@
+[project]
+name = "theme-switcher"
+version = "0.1.0"
+description = "Theme switcher for hyprland rice"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[tool.pyright]
+pythonVersion = "3.13"
+typeCheckingMode = "basic"
