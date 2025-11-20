@@ -4,20 +4,21 @@ import subprocess
 from pathlib import Path
 
 
-class ThemeSwitcher:
+class ScriptRunner:
     def __init__(self) -> None:
         self.base_dir = Path(__file__).resolve().parent
         self.script_dir = self.base_dir / "scripts"
 
-    def run_script(self, script_name: str, *args) -> bool:
-        script_path = self.script_dir / script_name
+    def set_gtk_themes(
+        self, theme: str, icon: str, cursor: str, color_scheme: str
+    ) -> None:
+        script_path = self.script_dir / "set_gtk_themes.sh"
+        subprocess.run([str(script_path), theme, icon, cursor, color_scheme])
 
-        try:
-            subprocess.run(
-                [str(script_path), *args], check=True, capture_output=True, text=True
-            )
-            return True
+    def set_kitty(self, theme: str) -> None:
+        script_path = self.script_dir / "set_kitty.sh"
+        subprocess.run([str(script_path), theme])
 
-        except subprocess.CalledProcessError as e:
-            print(f"{script_name} failed: {e.stderr.strip()}")
-            return False
+    def set_qt_theme(self, theme: str) -> None:
+        script_path = self.script_dir / "set_qt_theme.sh"
+        subprocess.run([str(script_path), theme])
