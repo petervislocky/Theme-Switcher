@@ -4,7 +4,7 @@ from script_runner import ScriptRunner
 
 
 def main():
-    pass
+    runner = ScriptRunner()
 
 
 if __name__ == "__main__":
