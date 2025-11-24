@@ -1,12 +1,10 @@
-#!/usr/bin/env python3
-
 import subprocess
 from pathlib import Path
 
 
 class ScriptRunner:
     def __init__(self) -> None:
-        self.base_dir = Path(__file__).resolve().parent
+        self.base_dir = Path(__file__).resolve().parent.parent.parent
         self.script_dir = self.base_dir / "scripts"
 
     def set_gtk_themes(
